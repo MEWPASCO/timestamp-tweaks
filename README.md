@@ -53,10 +53,9 @@ Put this into your QuickCSS (Or any non-Vencord equivalent) to configure some be
 ```css
 /* timestamp-tweaks */
 :root{
-  /* to find your hsl value, visit https://hslpicker.com/#00ff00 - the / <number> in the hsl code refers to the opacity */
+  /* the / <number> in the hsl code refers to the opacity */
     --timestamp-border-color: hsl(120 100% 50% / 100%) !important; 
 }
 ```
 
-A website that will help you configure the hsl values is always written in the /* */ line, but let's link it again!
-Thanks to the creator of the wonderful website of [HSL Color Picker](https://hslpicker.com/#00ff00fa).
+Thanks to the creator of the wonderful website of [HSL Color Picker](https://hslpicker.com/#00ff00fa), this will help you pick your HSL value/s!
