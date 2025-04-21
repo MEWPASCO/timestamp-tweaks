@@ -1,3 +1,13 @@
+/**
+ * @name Timestamp Tweaks
+ * @author Wolfÿ
+ * @version 1.0.0
+ * @description Collection of a few timestamp tweaks to make your daily discord usage more user-friendly
+ * @invite avia
+ * @source https://github.com/MEWPASCO/rainbowglow-avatars
+ * @website https://www.avariaxyz.win/
+ */
+
 :root{
   /* to find your hsl value, visit https://hslpicker.com/#00ff00 - the / <number> in the hsl code refers to the opacity */
     --timestamp-border-color: hsl(120 100% 50% / 100%); 
