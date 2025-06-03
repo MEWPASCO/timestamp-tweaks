@@ -11,47 +11,48 @@
 :root{
   /* to find your hsl value, visit https://hslpicker.com/#00ff00 - the / <number> in the hsl code refers to the opacity */
     --timestamp-border-color: hsl(120 100% 50% / 100%); 
+}
 
-/* Improved Timestamp visibility */
+/* === Base Timestamp Bubble Styling === */
 .timestamp__75297 {
-  border: 2px solid;
-  border-color: var(--timestamp-border-color);
+  border: 2px solid var(--timestamp-border-color);
   border-radius: 8px;
   font-size: smaller;
+  padding: 0 4px;
 }
+
 .timestamp__75297::before {
   content: "🕔";
   margin-left: -2px;
   display: inline-block;
 }
+
 .timestamp__75297::after {
   content: "";
   margin-right: 2px;
 }
-}
 
-
-/* Detailed Timestamp - bringing back "Today at" and more detailed view of the message timestamp */
-span[class*="timestampInline_"] time::before {
+/* === Inline Timestamps – Show Full Text (e.g. "Today at 5:23 PM") === */
+.timestampInline__089cf time::before {
   content: attr(aria-label);
   font-size: 12px;
 }
 
-span[class*="timestampInline_"] {
-  font-size: 0px !important;
+.timestampInline__089cf {
+  font-size: 0 !important;
 }
 
-
-/* Makes "edited" show the exact time it got edited - just with css */
-.timestamp_c19a55:not(.timestampInline_c19a55, .timestampVisibleOnHover_c19a55) time::after {
-        content: " (" attr(aria-label) ")";
-        color: var(--text-muted);
-        font-size: 0.625rem;
-        font-weight: 400;
-        line-height: 1;
-        text-transform: lowercase;
+/* === Edited Timestamp Display – Adds exact time of edit next to message === */
+.timestamp_c19a55:not(.timestampInline__089cf, .timestampVisibleOnHover_c19a55) time::after {
+  content: " (" attr(aria-label) ")";
+  color: var(--text-muted);
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: lowercase;
 }
 
+/* === Hide default "edited" label (it's redundant with our added info) === */
 .edited_c19a55:not(.message-translate-indicator) {
-    display: none;
+  display: none;
 }
