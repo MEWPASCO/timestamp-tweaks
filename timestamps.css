@@ -32,16 +32,6 @@
   margin-right: 2px;
 }
 
-/* === Inline Timestamps – Show Full Text (e.g. "Today at 5:23 PM") === */
-.timestampInline__089cf time::before {
-  content: attr(aria-label);
-  font-size: 12px;
-}
-
-.timestampInline__089cf {
-  font-size: 0 !important;
-}
-
 /* === Edited Timestamp Display – Adds exact time of edit next to message === */
 .timestamp_c19a55:not(.timestampInline__089cf, .timestampVisibleOnHover_c19a55) time::after {
   content: " (" attr(aria-label) ")";
@@ -52,7 +42,7 @@
   text-transform: lowercase;
 }
 
-/* === Hide default "edited" label (it's redundant with our added info) === */
+/* === Hide default "edited" label === */
 .edited_c19a55:not(.message-translate-indicator) {
   display: none;
 }
