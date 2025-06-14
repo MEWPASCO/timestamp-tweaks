@@ -33,7 +33,7 @@ Use [Vencord](https://github.com/Vendicated/Vencord) or an equivalent client mod
 
 Paste the following link into your online theme links:
 ```
-https://raw.githubusercontent.com/MEWPASCO/timestamp-tweaks/refs/heads/main/timestamps.css
+https://raw.githubusercontent.com/MEWPASCO/timestamp-tweaks/main/timestamps.css
 ```
 
 ### Other method 
@@ -42,7 +42,7 @@ Paste this into your QuickCSS (Or any non-Vencord equivalent) to make it a littl
 > Must be at the top of your code, @import does not work otherwise - this is for all the @import code you might have - put it to the top!  
 ```
 /* timestamp-tweaks */
-@import url('https://raw.githubusercontent.com/MEWPASCO/timestamp-tweaks/refs/heads/main/timestamps.css');
+@import url('https://raw.githubusercontent.com/MEWPASCO/timestamp-tweaks/main/timestamps.css');
 ```
 
 Alternatively if your client does not support online themes you can download the theme file found in this repository and put it into your theme folder.
