@@ -13,13 +13,6 @@ Before:\
 After:\
 ![Image](https://github.com/user-attachments/assets/e4e9570e-6589-48db-93b5-0aa4ce4be1f3)
 
-### Detailed timestamps
-Before:\
-![Image](https://github.com/user-attachments/assets/4fd5f0ab-837c-41c9-8732-9a91a4a13bbd)
-
-After:\
-![Image](https://github.com/user-attachments/assets/11e296c9-24f1-4a4c-98da-a71c4f8e7e5a)
-
 ### Edited timestamps
 Before:\
 ![Image](https://github.com/user-attachments/assets/200187df-b419-46c4-9e80-af93f864f479)
