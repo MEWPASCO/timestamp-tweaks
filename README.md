@@ -4,21 +4,21 @@
 
 # Timestamp Tweaks
 
-This is a small collection of tweaks to the timestamps, as example making timestamps sent in chat more readable, bring back the more detailed message timestamp and also show the exact timestamp of when a message got edited (with only css)((will replace the "edited" text))
+Bring back a more detailed timestamp on hover (+ more readable edited-message-timestamp) and create bordered timestamps! Both are customizable!
 
-### More readable timestamps
+### Bordered timestamps
 Before:\
 ![Image](https://github.com/user-attachments/assets/3e292344-ec2b-4ec7-976b-7e216f3e925e)
 
 After:\
 ![Image](https://github.com/user-attachments/assets/e4e9570e-6589-48db-93b5-0aa4ce4be1f3)
 
-### Edited timestamps
+### Full timestamps
 Before:\
-![Image](https://github.com/user-attachments/assets/200187df-b419-46c4-9e80-af93f864f479)
+![Image](https://github.com/user-attachments/assets/bb3766f1-e3bc-4ab2-8d8f-da9c48ee99c9)
 
 After:\
-![Image](https://github.com/user-attachments/assets/c4f9588e-3a04-4005-8043-cccfc1fc0ea9)
+![Image](https://github.com/user-attachments/assets/4fb937d3-4a4f-47f8-896e-7ed875826936)
 
 # Installing it to your Discord
 
@@ -46,8 +46,14 @@ Put this into your QuickCSS (Or any non-Vencord equivalent) to configure some be
 ```css
 /* timestamp-tweaks */
 :root{
+  /* Timestamp - Border */
   /* the / <number> in the hsl code refers to the opacity */
-    --timestamp-border-color: hsl(120 100% 50% / 100%) !important; 
+    --timestamp-border-color: hsl(120 100% 50% / 100%) !important;
+
+  /* Colored EDITED-Timestamp on hover */
+[role="article"]:hover .timestamp_c19a55:has(.edited_c19a55) > [class^="hiddenVisually_"] {
+  color: #ff00a6 !important;   /* !!custom color!! */
+}
 }
 ```
 
