@@ -30,30 +30,28 @@
 }
 }
 
-/* Makes "edited" show the exact time it got edited - just with css */
-/* Compact timestamp using SR-only text + original (edited) */
-.timestamp_c19a55:not(.timestampInline_c19a55, .timestampVisibleOnHover_c19a55) {
-  display: inline-flex;
-  gap: 1px;
+
+/* Reveal full timestamp when hovering the message */
+/* Unhide Discord's SR-only full timestamp */
+.timestamp_c19a55 > [class^="hiddenVisually_"] {
+  all: unset;
+  display: none;
 }
 
-/* Unhide the SR-only full date and show it first, wrapped in () */
-.timestamp_c19a55:not(.timestampInline_c19a55, .timestampVisibleOnHover_c19a55) > [class^="hiddenVisually_"] {
-  order: 1;
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  clip: auto !important;
-  clip-path: none !important;
-  color: var(--text-muted);
+/* Display on message hover */
+[role="article"]:hover .timestamp_c19a55 > [class^="hiddenVisually_"] {
+  display: inline;
+  margin-left: 2px;
   font-size: 0.625rem;
-}
-.timestamp_c19a55:not(.timestampInline_c19a55, .timestampVisibleOnHover_c19a55) > [class^="hiddenVisually_"]::before { content: " ("; }
-.timestamp_c19a55:not(.timestampInline_c19a55, .timestampVisibleOnHover_c19a55) > [class^="hiddenVisually_"]::after  { content: ")"; }
-
-/* When the full date exists, hide the short time but keep (edited) visible and last */
-.timestamp_c19a55:not(.timestampInline_c19a55, .timestampVisibleOnHover_c19a55):has(> [class^="hiddenVisually_"]) > time {
-  order: 2;
-  font-size: 0.625rem !important;
   color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Add ( and ) */
+.timestamp_c19a55 > [class^="hiddenVisually_"]::before { content: " ("; }
+.timestamp_c19a55 > [class^="hiddenVisually_"]::after  { content: ")"; }
+
+/* Color the "edited" timestamp for better visibility */
+[role="article"]:hover .timestamp_c19a55:has(.edited_c19a55) > [class^="hiddenVisually_"] {
+  color: #ff00a6 !important;   /* custom color */
 }
