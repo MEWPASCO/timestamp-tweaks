@@ -17,7 +17,7 @@ After:\
 Before:\
 ![Image](https://github.com/user-attachments/assets/bb3766f1-e3bc-4ab2-8d8f-da9c48ee99c9)
 
-After:\
+After [On hover]:\
 ![Image](https://github.com/user-attachments/assets/4fb937d3-4a4f-47f8-896e-7ed875826936)
 
 # Installing it to your Discord
@@ -51,7 +51,7 @@ Put this into your QuickCSS (Or any non-Vencord equivalent) to configure some be
     --timestamp-border-color: hsl(120 100% 50% / 100%) !important;
 
   /* Colored EDITED-Timestamp on hover */
-[role="article"]:hover .timestamp_c19a55:has(.edited_c19a55) > [class^="hiddenVisually_"] {
+  [role="article"]:hover .timestamp_c19a55:has(.edited_c19a55) > [class^="hiddenVisually_"] {
   color: #ff00a6 !important;   /* !!custom color!! */
 }
 }
