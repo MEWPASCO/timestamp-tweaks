@@ -13,18 +13,18 @@
     --timestamp-border-color: hsl(120 100% 50% / 100%); 
 
 /* Improved Timestamp visibility */
-.timestamp__75297 {
+._752971923a1e6683-timestamp {
   border: 2px solid;
   border-color: var(--timestamp-border-color);
   border-radius: 8px;
   font-size: smaller;
 }
-.timestamp__75297::before {
+._752971923a1e6683-timestamp::before {
   content: "🕔";
   margin-left: -2px;
   display: inline-block;
 }
-.timestamp__75297::after {
+._752971923a1e6683-timestamp::after {
   content: "";
   margin-right: 2px;
 }
@@ -33,13 +33,13 @@
 
 /* Reveal full timestamp when hovering the message */
 /* Unhide Discord's SR-only full timestamp */
-.timestamp_c19a55 > [class^="hiddenVisually_"] {
+.c19a557985eb7793-timestamp > [class^="hiddenVisually_"] {
   all: unset;
   display: none;
 }
 
 /* Display on message hover */
-[role="article"]:hover .timestamp_c19a55 > [class^="hiddenVisually_"] {
+[role="article"]:hover .c19a557985eb7793-timestamp > [class^="hiddenVisually_"] {
   display: inline;
   margin-left: 2px;
   font-size: 0.625rem;
@@ -48,10 +48,10 @@
 }
 
 /* Add ( and ) */
-.timestamp_c19a55 > [class^="hiddenVisually_"]::before { content: " ("; }
-.timestamp_c19a55 > [class^="hiddenVisually_"]::after  { content: ")"; }
+.c19a557985eb7793-timestamp > [class^="hiddenVisually_"]::before { content: " ("; }
+.c19a557985eb7793-timestamp > [class^="hiddenVisually_"]::after  { content: ")"; }
 
 /* Color the "edited" timestamp for better visibility */
-[role="article"]:hover .timestamp_c19a55:has(.edited_c19a55) > [class^="hiddenVisually_"] {
+[role="article"]:hover .c19a557985eb7793-timestamp:has(.c19a557985eb7793-edited) > [class^="hiddenVisually_"] {
   color: #ff00a6 !important;   /* custom color */
 }
