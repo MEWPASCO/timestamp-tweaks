@@ -1,57 +1,64 @@
 /**
  * @name Timestamp Tweaks
  * @author Wolfÿ
- * @version 1.0.1-Alpha
+ * @version 1.0.2-Alpha
  * @description Collection of a few timestamp tweaks to make your daily discord usage more user-friendly
  * @invite avia
- * @source https://github.com/MEWPASCO/rainbowglow-avatars
+ * @source https://github.com/MEWPASCO/timestamp-tweaks
  * @website https://www.avariaxyz.win/
  */
 
-:root{
+:root {
   /* to find your hsl value, visit https://hslpicker.com/#00ff00 - the / <number> in the hsl code refers to the opacity */
-    --timestamp-border-color: hsl(120 100% 50% / 100%); 
+  --timestamp-border-color: hsl(120 100% 50% / 100%);
+  --timestamp-edited-color: #ff00a6; /* color of the full timestamp on edited messages (shown on hover) */
+  --timestamp-icon: "🕔";            /* icon in front of the timestamp, use "" for none */
+}
 
-/* Improved Timestamp visibility */
-.timestamp__75297 {
-  border: 2px solid;
-  border-color: var(--timestamp-border-color);
+/*
+ * Discord class names carry a build hash (e.g. timestamp_c19a55) that changes
+ * with updates, so everything below matches on the stable part before the hash.
+ */
+
+/* === Improved Timestamp visibility === */
+[class*="timestamp__"] {
+  border: 2px solid var(--timestamp-border-color);
   border-radius: 8px;
   font-size: smaller;
 }
-.timestamp__75297::before {
-  content: "🕔";
+
+[class*="timestamp__"]::before {
+  content: var(--timestamp-icon);
   margin-left: -2px;
   display: inline-block;
 }
-.timestamp__75297::after {
+
+[class*="timestamp__"]::after {
   content: "";
   margin-right: 2px;
 }
-}
 
-
-/* Reveal full timestamp when hovering the message */
-/* Unhide Discord's SR-only full timestamp */
-.timestamp_c19a55 > [class^="hiddenVisually_"] {
+/* === Reveal full timestamp when hovering the message === */
+/* Hide Discord's screen-reader-only full timestamp by default */
+[class*="timestamp_"] > [class*="hiddenVisually_"] {
   all: unset;
   display: none;
 }
 
 /* Display on message hover */
-[role="article"]:hover .timestamp_c19a55 > [class^="hiddenVisually_"] {
+[role="article"]:hover [class*="timestamp_"] > [class*="hiddenVisually_"] {
   display: inline;
   margin-left: 2px;
   font-size: 0.625rem;
-  color: var(--text-muted);
+  color: var(--text-muted, #949ba4);
   white-space: nowrap;
 }
 
 /* Add ( and ) */
-.timestamp_c19a55 > [class^="hiddenVisually_"]::before { content: " ("; }
-.timestamp_c19a55 > [class^="hiddenVisually_"]::after  { content: ")"; }
+[class*="timestamp_"] > [class*="hiddenVisually_"]::before { content: " ("; }
+[class*="timestamp_"] > [class*="hiddenVisually_"]::after  { content: ")"; }
 
-/* Color the "edited" timestamp for better visibility */
-[role="article"]:hover .timestamp_c19a55:has(.edited_c19a55) > [class^="hiddenVisually_"] {
-  color: #ff00a6 !important;   /* custom color */
+/* === Color the "edited" timestamp for better visibility === */
+[role="article"]:hover [class*="timestamp_"]:has([class*="edited_"]) > [class*="hiddenVisually_"] {
+  color: var(--timestamp-edited-color) !important;
 }
