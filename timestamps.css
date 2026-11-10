@@ -1,7 +1,7 @@
 /**
  * @name Timestamp Tweaks
  * @author Wolfÿ
- * @version 1.0.2-Alpha
+ * @version 1.0.3-Alpha
  * @description Collection of a few timestamp tweaks to make your daily discord usage more user-friendly
  * @invite avia
  * @source https://github.com/MEWPASCO/timestamp-tweaks
@@ -16,26 +16,41 @@
 }
 
 /*
- * Discord class names carry a build hash (e.g. timestamp_c19a55) that changes
- * with updates, so everything below matches on the stable part before the hash.
+ * Discord class names carry a build hash that changes with updates, and on
+ * 2026-11-10 the format changed too (timestamp__75297 -> timestamp_2i8Bfm).
+ * Everything below matches on the name and ignores the hash.
+ *
+ * checked 2026-11-10: three kinds of timestamp share the class timestamp_<hash>:
+ *   span.timestamp_.timestampInline_              in the message header ("— 15:37")
+ *   span.timestamp_.timestampVisibleOnHover_      the small "[16:17]" next to continued messages
+ *   span.timestamp_                               the "(edited)" marker in the message text
+ * Each has a span.hiddenVisually_ child holding the full date. The border below
+ * is only drawn on the header timestamp, which is the one the old
+ * timestamp__<hash> class picked out.
  */
 
 /* === Improved Timestamp visibility === */
-[class*="timestamp__"] {
+[class*="timestampInline_"] {
   border: 2px solid var(--timestamp-border-color);
   border-radius: 8px;
   font-size: smaller;
 }
 
-[class*="timestamp__"]::before {
+[class*="timestampInline_"]::before {
   content: var(--timestamp-icon);
   margin-left: -2px;
   display: inline-block;
 }
 
-[class*="timestamp__"]::after {
+[class*="timestampInline_"]::after {
   content: "";
   margin-right: 2px;
+}
+
+/* The new header shows a "—" in front of the time. Inside the bordered pill it
+   is redundant, so it is hidden. Delete this rule to bring it back. */
+[class*="timestampInline_"] [class*="separator_"] {
+  display: none;
 }
 
 /* === Reveal full timestamp when hovering the message === */
@@ -46,7 +61,7 @@
 }
 
 /* Display on message hover */
-[role="article"]:hover [class*="timestamp_"] > [class*="hiddenVisually_"] {
+:is([role="article"], [class*="messageListItem_"]):hover [class*="timestamp_"] > [class*="hiddenVisually_"] {
   display: inline;
   margin-left: 2px;
   font-size: 0.625rem;
@@ -59,6 +74,6 @@
 [class*="timestamp_"] > [class*="hiddenVisually_"]::after  { content: ")"; }
 
 /* === Color the "edited" timestamp for better visibility === */
-[role="article"]:hover [class*="timestamp_"]:has([class*="edited_"]) > [class*="hiddenVisually_"] {
+:is([role="article"], [class*="messageListItem_"]):hover [class*="timestamp_"]:has([class*="edited_"]) > [class*="hiddenVisually_"] {
   color: var(--timestamp-edited-color) !important;
 }
